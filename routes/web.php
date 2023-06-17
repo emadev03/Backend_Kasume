@@ -73,7 +73,7 @@ Route::middleware(['auth', 'must-superadmin-or-admin'])->group(function () {
     Route::post('/admin/update-connected-device{id}', [ConnectedDeviceController::class, 'updateConnectedDevice'])->name('updateConnectedDevice');
 
     //Done Connected Device
-    Route::delete('/admin/connected-device/{id}', [ConnectedDeviceController::class, 'moveToHistory'])->name('moveConnectedDevices');
+    Route::delete('/admin/connected-device/{id}', [ConnectedDeviceController::class, 'moveToHistory'])->name('moveToHistory');
 
     //List Device
     Route::get('/history-connected-device', [ConnectedDeviceController::class, 'historyConnectedDevice'])->name('historyConnectedDevice');

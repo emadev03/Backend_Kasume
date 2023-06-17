@@ -20,6 +20,7 @@ class CreateConnectedDevicesTable extends Migration
             $table->integer('room');
             $table->string('patient_name');
             $table->boolean('status')->default(1);
+            $table->softDeletes();
             $table->timestamps();
         });
     }
