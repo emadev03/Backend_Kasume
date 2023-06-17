@@ -67,7 +67,7 @@
                             <h2 class="mb-8 text-xl font-bold text-white capitalize">
                                 Fill your personal information here:
                             </h2>
-                            <form action="/loginsuper" method="POST" class="space-y-4">
+                            <form action="/login" method="POST" class="space-y-4">
                                 @csrf
                                 <div>
                                     <div class="flex items-center justify-between">

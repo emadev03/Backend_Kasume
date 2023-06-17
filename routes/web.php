@@ -21,18 +21,18 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 */
 //User
 Route::get('/', [HomeController::class, 'index']);
-Route::get('/superLogin', [SuperLoginController::class, 'index2'])->name('superlogin')->middleware('guest');
-Route::post('/superAdminLogin', [SuperLoginController::class, 'authenticate2'])->middleware('guest');
-Route::post('/logout2', [SuperLoginController::class, 'logout2']);
+Route::get('/superLogin', [App\Http\Controllers\Auth\SuperLoginController::class, 'showLoginForm'])->name('superlogin');
+Route::post('/superAdminLogin', [App\Http\Controllers\Auth\SuperLoginController::class, 'login']);
+Route::post('/logoutSuperAdmin', [App\Http\Controllers\Auth\SuperLoginController::class, 'logout']);
 Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'showLoginForm']);
 Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'login']);
 Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
-Route::get('/addAdmin', [AdminController::class, 'index']);
-Route::post('/addAdmin', [AdminController::class, 'store'])->name('addAdmin');
 Auth::routes();
 
 // Super Admin
 Route::middleware(['auth', 'must-superadmin'])->group(function () {
+    Route::get('/addAdmin', [AdminController::class, 'index']);
+    Route::post('/addAdmin', [AdminController::class, 'store'])->name('addAdmin');
     Route::get('/adminList', [AdminController::class, 'list'])->name('adminList');
     Route::delete('/adminList/delete/{id}', [AdminController::class, 'destroy'])->name('delete.admin');
     Route::post('/adminList/update/{id}', [AdminController::class, 'update'])->name('update.admin');

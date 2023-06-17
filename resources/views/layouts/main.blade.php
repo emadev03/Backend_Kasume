@@ -120,7 +120,7 @@
                         </button>
                     </li>
                     @auth
-                        @if (Auth::user()->admin->role_id != 1)
+                        @if (Auth::user()->role_id != 1)
                         @else
                             <li class="border-l-4 border-softgreen">
                                 <button id="dropdownRightButton" data-dropdown-toggle="dropdownRightNurses"
@@ -162,7 +162,7 @@
 
             <div class="flex items-center justify-between px-6 pt-4 -mx-6 border-t">
                 @auth
-                    @if (Auth::user()->admin->role_id != 1)
+                    @if (Auth::user()->role_id != 1)
                         <form action="/logout" method="post">
                             @csrf
                             <button data-modal-target="popup-modal" data-modal-toggle="popup-modal"
@@ -301,7 +301,17 @@
                                     <img src="{{ asset('image/avatar.jpeg') }}" alt="Avatar User"
                                         class="hidden object-cover w-8 h-8 mt-6 rounded-full md:flex lg:mt-3" />
                                     <p class="pt-6 ml-2 font-semibold text-left uppercase font-poppins lg:pt-4">
-                                        {{ auth()->user()->admin->first_name }}
+                                        @auth
+                                            @if (Auth::user()->role_id != 1)
+                                                <a href="/login">
+                                                    {{ auth()->user()->admin->first_name }}
+                                                </a>
+                                            @else
+                                                <a href="/superLogin">
+                                                    Super Admin
+                                                </a>
+                                            @endif
+                                        @endauth
                                     </p>
                                     <div class="ml-auto mb-6 lg:w-[75%] xl:w-[80%] 2xl:w-[85%]">
                                         <div class="z-10 top-0 h-16 lg:pt-2.5">
@@ -356,7 +366,7 @@
                                 Yakin ingin keluar?
                             </h3>
                             @auth
-                                @if (Auth::user()->admin->role_id != 1)
+                                @if (Auth::user()->role_id != 1)
                                     <a href="/login">
                                         <button data-modal-hide="popup-modal" type="button"
                                             class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
