@@ -28,23 +28,13 @@ class ConnectedDeviceController extends Controller
         $connecteddevice = DeviceConnected::all();
         return view('admin&superadmin.connectedDevice')->with('connecteddevice', $connecteddevice);
     }
-    public function moveToHistory(Request $request, $id)
+    public function moveToHistory($id)
     {
         $connecteddevice = DeviceConnected::find($id);
-
-        $historyconnecteddevice = new HistoryConnectedDevice;
-        $historyconnecteddevice->model_name = DeviceConnected::class; 
-        $historyconnecteddevice->connected_device_id = $connecteddevice->id;
-        $historyconnecteddevice->code= $connecteddevice->code;
-        $historyconnecteddevice->ward_of_origin =$connecteddevice->ward_of_origin;
-        $historyconnecteddevice->room = $connecteddevice->room;
-        $historyconnecteddevice->patient_name = $connecteddevice->patient_name;
-        $historyconnecteddevice->save();
-
         $connecteddevice->delete();
-
         return redirect()->back()->with('success', 'Data berhasil dihapus.');
     }
+    
     public function editConnectedDevice($id)
     {
         $connecteddevice = DeviceConnected::whereId($id)->first();
@@ -65,7 +55,7 @@ class ConnectedDeviceController extends Controller
 
     public function historyConnectedDevice()
     {
-        $connecteddevice = HistoryConnectedDevice::all();
-        return view('admin&superadmin.historyConnectedDevice')->with('connecteddevice', $connecteddevice);
+        $connecteddevice = DeviceConnected::onlyTrashed()->get();
+        return view('admin&superadmin.historyConnectedDevice', compact('connecteddevice'));
     }
 }
