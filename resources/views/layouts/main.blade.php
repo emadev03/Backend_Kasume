@@ -303,13 +303,9 @@
                                     <p class="pt-6 ml-2 font-semibold text-left uppercase font-poppins lg:pt-4">
                                         @auth
                                             @if (Auth::user()->role_id != 1)
-                                                <a href="/login">
-                                                    {{ auth()->user()->admin->first_name }}
-                                                </a>
+                                                {{ auth()->user()->admin->first_name }}
                                             @else
-                                                <a href="/superLogin">
-                                                    Super Admin
-                                                </a>
+                                                Super Admin
                                             @endif
                                         @endauth
                                     </p>
