@@ -9,7 +9,7 @@
                 </p>
                 <p class="">
                     Pasien
-                    <span class="ml-4">: Teddy Mukh</span>
+                    <span class="ml-4">: Teddy Mukhasan</span>
                 </p>
                 <p class="">
                     Ruang
