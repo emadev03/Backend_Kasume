@@ -176,7 +176,7 @@
                             </button>
                         </form>
                     @else
-                        <form action="/logout2" method="post">
+                        <form action="/logoutSuperAdmin" method="post">
                             @csrf
                             <button data-modal-target="popup-modal" data-modal-toggle="popup-modal"
                                 class="flex items-center px-4 py-3 space-x-4 transition duration-500 ease-in-out rounded-md group text-slate-200 {{ ($title = 'Device') ? 'active' : 'hover:bg-red-500' }}">
