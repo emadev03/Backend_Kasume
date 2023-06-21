@@ -55,7 +55,7 @@ class AdminController extends Controller
     }
     public function edit($id)
     {
-    $admin = Admin::whereId($id)->first();
+        $admin = Admin::whereId($id)->first();
         return view('superadmin.editAdmin')->with('admin', $admin);
     }
     public function update(Request $request, $id)
