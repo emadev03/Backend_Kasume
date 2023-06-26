@@ -64,14 +64,14 @@
                             class="relative flex items-center px-4 py-3 space-x-4 group">
                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40"
                                 height="40"
-                                class="fill-current text-slate-200 {{ ($title = 'Dashboard') ? 'active' : 'group-hover:text-slate-400' }}"
+                                class="fill-current {{ $title == 'Dashboard' ? 'text-softgreen group-hover:text-cyan-600' : 'text-slate-200 group-hover:text-slate-400' }}"
                                 viewBox="0 0 48 48">
                                 <path
                                     d="M39.5,43h-9c-1.381,0-2.5-1.119-2.5-2.5v-9c0-1.105-0.895-2-2-2h-4c-1.105,0-2,0.895-2,2v9c0,1.381-1.119,2.5-2.5,2.5h-9	C7.119,43,6,41.881,6,40.5V21.413c0-2.299,1.054-4.471,2.859-5.893L23.071,4.321c0.545-0.428,1.313-0.428,1.857,0L39.142,15.52	C40.947,16.942,42,19.113,42,21.411V40.5C42,41.881,40.881,43,39.5,43z">
                                 </path>
                             </svg>
                             <span
-                                class="pt-2 -mr-1 font-medium font-nobile text-slate-200 {{ ($title = 'Dashboard') ? 'active' : 'group-hover:text-slate-400' }}">Dashboard</span>
+                                class="pt-2 -mr-1 font-medium font-nobile {{ $title == 'Dashboard' ? 'text-softgreen group-hover:text-cyan-600' : 'text-slate-200 group-hover:text-slate-400' }}">Dashboard</span>
                         </a>
                     </li>
                     <li class="ml-1">
@@ -81,7 +81,7 @@
                                 class="relative flex items-center px-4 py-3 space-x-4 group">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                     stroke-width="1.5" stroke="currentColor"
-                                    class="w-9 h-9 text-slate-200 {{ ($title = 'Device') ? 'active' : 'group-hover:text-slate-400' }}">
+                                    class="w-9 h-9 {{ $title == 'Device' || $title == 'Add New Device' || $title == 'List Device' || $title == 'List Connected Device' || $title == 'History of Connected Device' ? 'text-softgreen group-hover:text-cyan-600' : 'text-slate-200 group-hover:text-slate-400' }}">
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M10.343 3.94c.09-.542.56-.94 1.11-.94h1.093c.55 0 1.02.398 1.11.94l.149.894c.07.424.384.764.78.93.398.164.855.142 1.205-.108l.737-.527a1.125 1.125 0 011.45.12l.773.774c.39.389.44 1.002.12 1.45l-.527.737c-.25.35-.272.806-.107 1.204.165.397.505.71.93.78l.893.15c.543.09.94.56.94 1.109v1.094c0 .55-.397 1.02-.94 1.11l-.893.149c-.425.07-.765.383-.93.78-.165.398-.143.854.107 1.204l.527.738c.32.447.269 1.06-.12 1.45l-.774.773a1.125 1.125 0 01-1.449.12l-.738-.527c-.35-.25-.806-.272-1.203-.107-.397.165-.71.505-.781.929l-.149.894c-.09.542-.56.94-1.11.94h-1.094c-.55 0-1.019-.398-1.11-.94l-.148-.894c-.071-.424-.384-.764-.781-.93-.398-.164-.854-.142-1.204.108l-.738.527c-.447.32-1.06.269-1.45-.12l-.773-.774a1.125 1.125 0 01-.12-1.45l.527-.737c.25-.35.273-.806.108-1.204-.165-.397-.505-.71-.93-.78l-.894-.15c-.542-.09-.94-.56-.94-1.109v-1.094c0-.55.398-1.02.94-1.11l.894-.149c.424-.07.765-.383.93-.78.165-.398.143-.854-.107-1.204l-.527-.738a1.125 1.125 0 01.12-1.45l.773-.773a1.125 1.125 0 011.45-.12l.737.527c.35.25.807.272 1.204.107.397-.165.71-.505.78-.929l.15-.894z" />
                                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -89,7 +89,7 @@
                                 </svg>
 
                                 <span
-                                    class="pt-2 -mr-1 font-medium font-nobile text-slate-200 {{ ($title = 'Device') ? 'active' : 'group-hover:text-slate-400' }}">Devices</span>
+                                    class="pt-2 -mr-1 font-medium font-nobile {{ $title == 'Device' || $title == 'Add New Device' || $title == 'List Device' || $title == 'List Connected Device' || $title == 'History of Connected Device' ? 'text-softgreen group-hover:text-cyan-600' : 'text-slate-200 group-hover:text-slate-400' }}">Devices</span>
                             </div>
 
                             <div id="dropdownRightDevices" class="z-10 hidden bg-white rounded-lg shadow w-44">
@@ -97,22 +97,22 @@
                                     aria-labelledby="dropdownRightButton">
                                     <li>
                                         <a href="{{ route('adminAddNewDevice') }}"
-                                            class="block px-4 py-2 border-l-4 bg-slate-200 border-softgreen {{ ($title = 'Add New Device') ? 'active' : 'hover:bg-gray-100' }}">Add
+                                            class="block px-4 py-2 {{ $title == 'Add New Device' ? 'text-softgreen group-hover:text-cyan-600' : 'text-slate-200 group-hover:text-slate-400' }}">Add
                                             New Device</a>
                                     </li>
                                     <li>
                                         <a href="{{ route('listDevice') }}"
-                                            class="block px-4 py-2 {{ ($title = 'Connected Device') ? 'active' : 'hover:bg-gray-100' }}">List
+                                            class="block px-4 py-2 {{ $title == 'List Device' ? 'text-softgreen group-hover:text-cyan-600' : 'text-slate-200 group-hover:text-slate-400' }}">List
                                             Device</a>
                                     </li>
                                     <li>
                                         <a href="{{ route('listConnectedDevice') }}"
-                                            class="block px-4 py-2 {{ ($title = 'Connected Device') ? 'active' : 'hover:bg-gray-100' }}">Connected
+                                            class="block px-4 py-2 {{ $title == 'List Connected Device' ? 'text-softgreen group-hover:text-cyan-600' : 'text-slate-200 group-hover:text-slate-400' }}">Connected
                                             Device</a>
                                     </li>
                                     <li>
                                         <a href="{{ route('historyConnectedDevice') }}"
-                                            class="block px-4 py-2 {{ ($title = 'Connected Device') ? 'active' : 'hover:bg-gray-100' }}">History
+                                            class="block px-4 py-2 {{ $title == 'History of Connected Device' ? 'text-softgreen group-hover:text-cyan-600' : 'text-slate-200 group-hover:text-slate-400' }}">History
                                             of Connected Device</a>
                                     </li>
                                 </ul>
@@ -122,20 +122,20 @@
                     @auth
                         @if (Auth::user()->role_id != 1)
                         @else
-                            <li class="border-l-4 border-softgreen">
+                            <li class="">
                                 <button id="dropdownRightButton" data-dropdown-toggle="dropdownRightNurses"
                                     data-dropdown-placement="right">
                                     <div href="/addAdmin" aria-label="Add Nurses"
-                                        class="relative flex items-center px-4 py-3 space-x-4 transition duration-500 ease-in-out delay-150 group {{ ($title = 'Admin') ? 'active' : 'hover:translate-x-1 hover:bg-white' }}">
+                                        class="relative flex items-center px-4 py-3 space-x-4 transition duration-500 ease-in-out delay-150 group">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                             stroke-width="1.5" stroke="currentColor"
-                                            class="w-10 h-10 fill-current text-softgreen {{ ($title = 'Admin') ? 'active' : 'group-hover:text-cyan-600' }}">
+                                            class="w-10 h-10 fill-current {{ $title == 'Add New Admin' || $title == 'List Admin' ? 'text-softgreen group-hover:text-cyan-600' : 'text-slate-200 group-hover:text-slate-400' }}">
                                             <path stroke-linecap="round" stroke-linejoin="round"
                                                 d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
                                         </svg>
 
                                         <span
-                                            class="pt-2 -mr-1 font-medium font-nobile text-softgreen {{ ($title = 'Admin') ? 'active' : 'group-hover:text-cyan-600' }}">Nurses</span>
+                                            class="pt-2 -mr-1 font-medium font-nobile {{ $title == 'Add New Admin' || $title == 'List Admin' ? 'text-softgreen group-hover:text-cyan-600' : 'text-slate-200 group-hover:text-slate-400' }}">Nurses</span>
                                     </div>
 
                                     <div id="dropdownRightNurses" class="z-10 hidden bg-white rounded-lg shadow w-44">
@@ -143,12 +143,12 @@
                                             aria-labelledby="dropdownRightButton">
                                             <li>
                                                 <a href="/addAdmin"
-                                                    class="block px-4 py-2 border-l-4 bg-slate-200 border-softgreen {{ ($title = 'Admin') ? 'active' : 'hover:bg-gray-100' }}">Add
+                                                    class="block px-4 py-2 {{ $title == 'Add New Admin' ? 'text-softgreen group-hover:text-cyan-600' : 'text-slate-200 group-hover:text-slate-400' }}">Add
                                                     New Admin</a>
                                             </li>
                                             <li>
                                                 <a href="/adminList"
-                                                    class="block px-4 py-2 {{ ($title = 'Admin') ? 'active' : 'hover:bg-gray-100' }}">Admin
+                                                    class="block px-4 py-2 {{ $title == 'List Admin' ? 'text-softgreen group-hover:text-cyan-600' : 'text-slate-200 group-hover:text-slate-400' }}">Admin
                                                     List</a>
                                             </li>
                                         </ul>
@@ -161,35 +161,15 @@
             </nav>
 
             <div class="flex items-center justify-between px-6 pt-4 -mx-6 border-t">
-                @auth
-                    @if (Auth::user()->role_id != 1)
-                        <form action="/logout" method="post">
-                            @csrf
-                            <button data-modal-target="popup-modal" data-modal-toggle="popup-modal"
-                                class="flex items-center px-4 py-3 space-x-4 transition duration-500 ease-in-out rounded-md group text-slate-200 {{ ($title = 'Device') ? 'active' : 'hover:bg-red-500' }}">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none"
-                                    viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-                                </svg>
-                                <span class="group-hover:text-white">Logout</span>
-                            </button>
-                        </form>
-                    @else
-                        <form action="/logoutSuperAdmin" method="post">
-                            @csrf
-                            <button data-modal-target="popup-modal" data-modal-toggle="popup-modal"
-                                class="flex items-center px-4 py-3 space-x-4 transition duration-500 ease-in-out rounded-md group text-slate-200 {{ ($title = 'Device') ? 'active' : 'hover:bg-red-500' }}">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none"
-                                    viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-                                </svg>
-                                <span class="group-hover:text-white">Logout</span>
-                            </button>
-                        </form>
-                    @endif
-                @endauth
+                <button type="button" data-modal-toggle="popup-modal"
+                    class="flex items-center px-4 py-3 space-x-4 transition duration-500 ease-in-out rounded-md group text-slate-200 {{ ($title = 'Device') ? 'active' : 'hover:bg-red-500' }}">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                    </svg>
+                    <span class="group-hover:text-white">Logout</span>
+                </button>
             </div>
         </aside>
         <!-- Sidebar section end -->
@@ -211,7 +191,7 @@
                     </button>
                 </div>
                 <div>
-                    <ul>
+                    {{-- <ul>
                         <li class="border-l-4 border-softgreen">
                             <a href="/dashboard" aria-label="dashboard"
                                 class="relative flex items-center px-4 py-3 space-x-4 transition duration-500 ease-in-out delay-150 group hover:translate-x-1 hover:bg-white">
@@ -256,8 +236,8 @@
                                     class="pt-2 -mr-1 font-medium font-nobile text-slate-200 group-hover:text-slate-400">Nurses</span>
                             </a>
                         </li>
-                    </ul>
-                    <div class="items-center px-6 -mx-6 border-t mt-60">
+                    </ul> --}}
+                    {{-- <div class="items-center px-6 -mx-6 border-t mt-60">
                         <form action="/logout" method="post">
                             @csrf
                             <button data-modal-target="popup-modal" data-modal-toggle="popup-modal"
@@ -272,7 +252,7 @@
                         </form>
                     </div>
                 </div>
-            </nav>
+            </nav> --}}
         </aside>
         <!-- Content section start -->
         <section class="ml-auto bg-darkblue lg:w-[75%] xl:w-[80%] 2xl:w-[85%] 2xl:h-full">
@@ -288,7 +268,7 @@
                                     permata indah hospital
                                 </p>
                                 <div class="flex">
-                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                    {{-- <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                         class="w-10 h-8 mt-6 fill-current lg:mt-3 lg:w-32 2xl:w-28 text-slate-600"
                                         viewBox="0 0 24 24">
                                         <path
@@ -297,10 +277,10 @@
                                     </svg>
                                     <img src="{{ asset('image/1st.png') }}"
                                         class="w-6 h-6 mt-5 lg:mt-2 -ml-5 lg:-ml-8 xl:-ml-8 2xl:-ml-[22px] lg:mr-5 mr-1"
-                                        alt="notification logo" />
+                                        alt="notification logo" /> --}}
                                     <img src="{{ asset('image/avatar.jpeg') }}" alt="Avatar User"
                                         class="hidden object-cover w-8 h-8 mt-6 rounded-full md:flex lg:mt-3" />
-                                    <p class="pt-6 ml-2 font-semibold text-left uppercase font-poppins lg:pt-4">
+                                    <p class="pt-6 ml-2 mr-4 font-semibold text-left uppercase font-poppins lg:pt-4">
                                         @auth
                                             @if (Auth::user()->role_id != 1)
                                                 {{ auth()->user()->admin->first_name }}
@@ -309,7 +289,7 @@
                                             @endif
                                         @endauth
                                     </p>
-                                    <div class="ml-auto mb-6 lg:w-[75%] xl:w-[80%] 2xl:w-[85%]">
+                                    {{-- <div class="ml-auto mb-6 lg:w-[75%] xl:w-[80%] 2xl:w-[85%]">
                                         <div class="z-10 top-0 h-16 lg:pt-2.5">
                                             <div
                                                 class="flex items-center justify-between px-2 space-x-4 2xl:container">
@@ -325,7 +305,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
                             <div class="flex flex-wrap">
@@ -336,13 +316,14 @@
                 </div>
             </div>
 
-            <modal id="popup-modal"
+
+            <div id="popup-modal"
                 class="fixed top-0 left-0 right-0 z-50 hidden p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
                 <div class="relative w-full max-w-md max-h-full">
                     <div class="relative bg-white rounded-lg">
                         <button type="button"
                             class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center"
-                            data-modal-hide="popup-modal">
+                            data-modal-toggle="popup-modal">
                             <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd"
@@ -361,32 +342,37 @@
                             <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
                                 Yakin ingin keluar?
                             </h3>
-                            @auth
-                                @if (Auth::user()->role_id != 1)
-                                    <a href="/login">
-                                        <button data-modal-hide="popup-modal" type="button"
-                                            class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
-                                            Ya, Saya Yakin
-                                        </button>
-                                    </a>
-                                @else
-                                    <a href="/superLogin">
-                                        <button data-modal-hide="popup-modal" type="button"
-                                            class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
-                                            Ya, Saya Yakin
-                                        </button>
-                                    </a>
-                                @endif
-                            @endauth
+                            <div class="p-6 text-center flex flex-col md:flex-row md:items-center md:justify-center">
+                                @auth
+                                    @if (Auth::user()->role_id != 1)
+                                        <form id="logout-form" action="/logout" method="post">
+                                            @csrf
+                                            <button data-modal-toggle="popup-modal"
+                                                class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
+                                                Ya, Saya Yakin
+                                            </button>
+                                        </form>
+                                    @else
+                                        <form id="logout-form" action="/logoutSuperAdmin" method="post">
+                                            @csrf
+                                            <button data-modal-toggle="popup-modal"
+                                                class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
+                                                Ya, Saya Yakin
+                                            </button>
+                                        </form>
+                                    @endif
+                                @endauth
+                                <button data-modal-toggle="popup-modal" type="button"
+                                    class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10">
+                                    Tidak
+                                </button>
+                            </div>
 
-                            <button data-modal-hide="popup-modal" type="button"
-                                class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10">
-                                Tidak
-                            </button>
                         </div>
                     </div>
                 </div>
-            </modal>
+            </div>
+
         </section>
     </div>
     <!-- sidebar section start -->
@@ -397,7 +383,7 @@
 </body>
 
 <!-- Script section -->
-<script src="js/script.js"></script>
+<script src="{{ asset('js/script.js') }}"></script>
 
 <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>

@@ -11,11 +11,13 @@ class AdminController extends Controller
 {
     public function index()
     {
-        return view('superadmin.addAdmin', []);
+        $title = 'Add New Admin';
+        return view('superadmin.addAdmin', compact('title'));
     }
 
     public function store(Request $request)
     {
+        $title = 'Add New Admin';
         $validatedData = $request->validate([
             'first_name' => 'required',
             'last_name' => 'required',
@@ -38,17 +40,19 @@ class AdminController extends Controller
         $user->role_id = 2;
         $user->save();
 
-        return redirect('/addAdmin')->with('success', 'Registration successfull!');
+        return redirect('/addAdmin', compact('title'))->with('success', 'Registration successfull!');
     }
 
     public function list()
     {
+        $title = 'List Admin';
         $admin = Admin::all();
-        return view('superadmin.adminList')->with('admin', $admin);
+        return view('superadmin.adminList', compact('title'))->with('admin', $admin);
     }
 
     public function destroy($id)
     {
+        $title = 'Admin';
         $admin = Admin::find($id);
         $admin->delete();
         return redirect('/adminList');
@@ -56,10 +60,11 @@ class AdminController extends Controller
     public function edit($id)
     {
         $admin = Admin::whereId($id)->first();
-        return view('superadmin.editAdmin')->with('admin', $admin);
+        return view('superadmin.editAdmin', compact('title'))->with('admin', $admin);
     }
     public function update(Request $request, $id)
     {
+        $title = 'Admin';
         $admin = Admin::find($id);
 
         $admin->first_name = $request->first_name;
@@ -76,6 +81,6 @@ class AdminController extends Controller
         $admin::find($id)->update(['password_confirmation' => Hash::make($request->password_confirmation)]);
         $admin->save();
 
-        return redirect('/adminList');
+        return redirect('/adminList', compact('title'));
     }
 }

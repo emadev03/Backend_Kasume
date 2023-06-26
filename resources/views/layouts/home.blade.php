@@ -64,29 +64,28 @@
                             class="relative flex items-center px-4 py-3 space-x-4 group">
                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40"
                                 height="40"
-                                class="fill-current text-slate-200 {{ ($title = 'Dashboard') ? 'active' : 'group-hover:text-slate-400' }}"
+                                class="fill-current {{ $title == 'Dashboard' ? 'text-softgreen group-hover:text-cyan-600' : 'text-slate-200 group-hover:text-slate-400' }}"
                                 viewBox="0 0 48 48">
                                 <path
                                     d="M39.5,43h-9c-1.381,0-2.5-1.119-2.5-2.5v-9c0-1.105-0.895-2-2-2h-4c-1.105,0-2,0.895-2,2v9c0,1.381-1.119,2.5-2.5,2.5h-9	C7.119,43,6,41.881,6,40.5V21.413c0-2.299,1.054-4.471,2.859-5.893L23.071,4.321c0.545-0.428,1.313-0.428,1.857,0L39.142,15.52	C40.947,16.942,42,19.113,42,21.411V40.5C42,41.881,40.881,43,39.5,43z">
                                 </path>
                             </svg>
                             <span
-                                class="pt-2 -mr-1 font-medium font-nobile text-slate-200 {{ ($title = 'Dashboard') ? 'active' : 'group-hover:text-slate-400' }}">Dashboard</span>
+                                class="pt-2 -mr-1 font-medium font-nobile {{ $title == 'Dashboard' ? 'text-softgreen group-hover:text-cyan-600' : 'text-slate-200 group-hover:text-slate-400' }}">Dashboard</span>
                         </a>
                     </li>
                     <li class="ml-1">
-                        <a href="" aria-label="dashboard"
-                            class="relative flex items-center px-4 py-3 space-x-4 group">
-                            <svg class="h-10 w-10 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="12" cy="12" r="10" />
-                                <line x1="12" y1="16" x2="12" y2="12" />
-                                <line x1="12" y1="8" x2="12.01" y2="8" />
-                            </svg>
-                            <span class="pt-2 -mr-1 font-medium font-nobile text-slate-200"
-                                data-modal-target="defaultModal" data-modal-toggle="defaultModal">About</span>
+                        <a href="#" aria-label="dashboard" class="relative flex items-center px-4 py-3 space-x-4 group" data-modal-toggle="defaultModal">
+                          <svg class="h-10 w-10 text-white {{ $title == 'Dashboard' ? 'text-slate-200 group-hover:text-slate-400' : 'text-softgreen group-hover:text-cyan-600' }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="12" y1="16" x2="12" y2="12" />
+                            <line x1="12" y1="8" x2="12.01" y2="8" />
+                          </svg>
+                          <span class="pt-2 -mr-1 font-medium font-nobile {{ $title == 'Dashboard' ? 'text-slate-200 group-hover:text-slate-400' : 'text-softgreen group-hover:text-cyan-600' }}">
+                            About
+                          </span>
                         </a>
-                    </li>
+                      </li>
                 </ul>
             </nav>
         </aside>
@@ -182,18 +181,10 @@
                                 that could personally affect them.
                             </p>
                         </div>
-                        <!-- Modal footer -->
-                        <div
-                            class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
-                            <button data-modal-hide="defaultModal" type="button"
-                                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">I
-                                accept</button>
-                            <button data-modal-hide="defaultModal" type="button"
-                                class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Decline</button>
-                        </div>
                     </div>
                 </div>
             </div>
+
 
         </section>
     </div>

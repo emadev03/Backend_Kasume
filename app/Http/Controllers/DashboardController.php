@@ -8,10 +8,12 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        return view('admin&superadmin.dashboard');
+        $title = 'Dashboard';
+        return view('admin&superadmin.dashboard', compact('title'));
     }
     public function index2()
     {
-        return view('user.dashboard');
+        $title = 'Dashboard';
+        return view('user.dashboard', compact('title'));
     }
 }

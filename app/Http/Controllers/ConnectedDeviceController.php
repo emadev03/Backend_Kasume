@@ -10,6 +10,7 @@ class ConnectedDeviceController extends Controller
 {
     public function connectDevice(Request $request)
     {
+        $title = 'Device';
         $validatedData = $request->validate([
             'patient_name' => 'required',
             'code' => 'required',
@@ -21,27 +22,31 @@ class ConnectedDeviceController extends Controller
         $connecteddevice -> save();
 
 
-        return redirect('/list-connected-device')->with('success', 'Add New Device Success');
+        return redirect('/list-connected-device', compact('title'))->with('success', 'Add New Device Success');
     }
     public function listConnectedDevice()
     {
+        $title = 'List Connected Device';
         $connecteddevice = DeviceConnected::all();
-        return view('admin&superadmin.connectedDevice')->with('connecteddevice', $connecteddevice);
+        return view('admin&superadmin.connectedDevice', compact('title'))->with('connecteddevice', $connecteddevice);
     }
     public function moveToHistory($id)
     {
+        $title = 'Device';
         $connecteddevice = DeviceConnected::find($id);
         $connecteddevice->delete();
-        return redirect()->back()->with('success', 'Data berhasil dihapus.');
+        return redirect(compact('title'))->back()->with('success', 'Data berhasil dihapus.');
     }
     
     public function editConnectedDevice($id)
     {
+        $title = 'Device';
         $connecteddevice = DeviceConnected::whereId($id)->first();
-        return view('admin&superadmin.editConnectedDevice')->with('connecteddevice', $connecteddevice);
+        return view('admin&superadmin.editConnectedDevice', compact('title'))->with('connecteddevice', $connecteddevice);
     }
     public function updateConnectedDevice(Request $request, $id)
     {
+        $title = 'Device';
         $connecteddevice = DeviceConnected::find($id);
 
         $connecteddevice->patient_name = $request->patient_name;
@@ -50,12 +55,13 @@ class ConnectedDeviceController extends Controller
         $connecteddevice->room = $request->room;
         $connecteddevice->save();
 
-        return redirect('/list-connected-device');
+        return redirect('/list-connected-device', compact('title'));
     }
 
     public function historyConnectedDevice()
     {
+        $title = 'History of Connected Device';
         $connecteddevice = DeviceConnected::onlyTrashed()->get();
-        return view('admin&superadmin.historyConnectedDevice', compact('connecteddevice'));
+        return view('admin&superadmin.historyConnectedDevice', compact('connecteddevice', 'title'));
     }
 }

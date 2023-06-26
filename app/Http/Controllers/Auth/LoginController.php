@@ -24,7 +24,6 @@ class LoginController extends Controller
             $request->session()->regenerate();
             return redirect()->intended('/dashboard');
         }
-
         return back()->withErrors([
             'password' => 'Wrong nip or password',
         ]);
@@ -33,11 +32,6 @@ class LoginController extends Controller
     public function logout()
     {
         Auth::logout();
-
-        request()->session()->invalidate();
-
-        request()->session()->regenerateToken();
-
         return redirect('/login');
     }
 }

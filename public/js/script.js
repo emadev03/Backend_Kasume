@@ -89,3 +89,69 @@ window.addEventListener('DOMContentLoaded', () => {
     sukses.classList.remove('hidden');
   });
 });
+
+// Mendapatkan elemen modal
+const defaultModal = document.getElementById('defaultModal');
+const popupModal = document.getElementById('popup-modal');
+
+// Mendapatkan tombol yang membuka modal
+const modalToggleButtons = document.querySelectorAll('[data-modal-toggle="defaultModal"]');
+const popupModalToggleButtons = document.querySelectorAll('[data-modal-toggle="popup-modal"]');
+
+// Mendapatkan tombol yang menutup modal
+const modalCloseButtons = document.querySelectorAll('[data-modal-close]');
+
+// Menambahkan event listener pada tombol yang membuka modal
+modalToggleButtons.forEach(button => {
+  button.addEventListener('click', (event) => {
+    event.preventDefault();
+    defaultModal.classList.add('block');
+  });
+});
+
+popupModalToggleButtons.forEach(button => {
+  button.addEventListener('click', (event) => {
+    event.preventDefault();
+    popupModal.classList.add('block');
+  });
+});
+
+// Menambahkan event listener pada tombol yang menutup modal
+modalCloseButtons.forEach(button => {
+  button.addEventListener('click', (event) => {
+    event.preventDefault();
+    const modalId = button.getAttribute('data-modal-close');
+    const modal = document.getElementById(modalId);
+    modal.classList.remove('block');
+    location.reload(); // Memuat ulang halaman
+  });
+});
+
+// Menutup modal saat mengklik di luar modal
+window.addEventListener('click', (event) => {
+  if (event.target === defaultModal || event.target === popupModal) {
+    event.target.classList.remove('block');
+    location.reload(); // Memuat ulang halaman
+  }
+});
+
+// Mengirimkan form logout saat tombol "Ya, Saya Yakin" ditekan
+const logoutForm = document.getElementById('logout-form');
+if (logoutForm) {
+  logoutForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    // Lakukan logika logout di sini
+    console.log('Logout');
+    defaultModal.classList.remove('block');
+    popupModal.classList.remove('block');
+    location.reload(); // Memuat ulang halaman
+    // Lanjutkan dengan proses logout
+    event.target.submit();
+  });
+}
+
+
+
+
+
+
