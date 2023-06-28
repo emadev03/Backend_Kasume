@@ -19,6 +19,8 @@ Route::middleware(['guest'])->group(function () {
     Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'showLoginForm']);
     Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'login']);
     Auth::routes();
+    Route::get('/get', [App\Http\Controllers\View::class, 'get'])->name('get');
+    Route::get('/sensor/{idAlat}/{dropsPerMinutes}/{kapasitas}/{status}', [App\Http\Controllers\View::class, 'sensor']);
 });
 // Super Admin
 Route::middleware(['auth', 'must-superadmin'])->group(function () {
@@ -82,3 +84,4 @@ Route::middleware(['auth', 'must-superadmin-or-admin'])->group(function () {
     // Logout
     Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 });
+
