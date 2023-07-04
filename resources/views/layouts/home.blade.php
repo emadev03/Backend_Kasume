@@ -75,17 +75,22 @@
                         </a>
                     </li>
                     <li class="ml-1">
-                        <a href="#" aria-label="dashboard" class="relative flex items-center px-4 py-3 space-x-4 group" data-modal-toggle="defaultModal">
-                          <svg class="h-10 w-10 text-white {{ $title == 'Dashboard' ? 'text-slate-200 group-hover:text-slate-400' : 'text-softgreen group-hover:text-cyan-600' }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10" />
-                            <line x1="12" y1="16" x2="12" y2="12" />
-                            <line x1="12" y1="8" x2="12.01" y2="8" />
-                          </svg>
-                          <span class="pt-2 -mr-1 font-medium font-nobile {{ $title == 'Dashboard' ? 'text-slate-200 group-hover:text-slate-400' : 'text-softgreen group-hover:text-cyan-600' }}">
-                            About
-                          </span>
+                        <a href="#" aria-label="dashboard"
+                            class="relative flex items-center px-4 py-3 space-x-4 group"
+                            data-modal-toggle="defaultModal">
+                            <svg class="h-10 w-10 text-white {{ $title == 'Dashboard' ? 'text-slate-200 group-hover:text-slate-400' : 'text-softgreen group-hover:text-cyan-600' }}"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10" />
+                                <line x1="12" y1="16" x2="12" y2="12" />
+                                <line x1="12" y1="8" x2="12.01" y2="8" />
+                            </svg>
+                            <span
+                                class="pt-2 -mr-1 font-medium font-nobile {{ $title == 'Dashboard' ? 'text-slate-200 group-hover:text-slate-400' : 'text-softgreen group-hover:text-cyan-600' }}">
+                                About
+                            </span>
                         </a>
-                      </li>
+                    </li>
                 </ul>
             </nav>
         </aside>
@@ -146,40 +151,47 @@
             </div>
             {{-- Modal --}}
             <div id="defaultModal" tabindex="-1" aria-hidden="true" data-modal-backdrop="static"
-                class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full border-[#000C66]">
-                <div class="relative w-full max-w-2xl max-h-full">
+                class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full border-10 border-[#000C66]">
+                <div class="relative w-full max-w-2xl max-h-full border-10 border-[#000C66] border-solid">
                     <!-- Modal content -->
-                    <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                    <div class="relative bg-white rounded-2xl shadow ">
                         <!-- Modal header -->
-                        <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-[#000C66]">
-                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                                Terms of Service
+                        <div class="p-4 border-b rounded-t-2xl bg-[#000C66] border:border-[#000C66]">
+                            <h3 class="text-xl font-semibold text-white text-center">
+                                Permata Indah Hospital
                             </h3>
-                            <button type="button"
-                                class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                                data-modal-hide="defaultModal">
-                                <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd"
-                                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                                        clip-rule="evenodd"></path>
-                                </svg>
-                                <span class="sr-only">Close modal</span>
-                            </button>
                         </div>
+
                         <!-- Modal body -->
                         <div class="p-6 space-y-6">
-                            <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                                With less than a month to go before the European Union enacts new consumer privacy laws
-                                for its citizens, companies around the world are updating their terms of service
-                                agreements to comply.
+                            <p
+                                class="text-base leading-relaxed text-justify text-black first-letter:text-7xl first-letter:font-bold indent-8">
+                                Permata Indah Hospital is a medical facility located in the bustling city of Yogyakarta.
+                                The hospital is renowned for its high-quality services and complete modern facilities.
+                                With skilled and experienced medical teams, the hospital provides a wide range of
+                                healthcare services, from general care to specialized treatments in various fields.
+                                Patients at Permata Indah Hospital can feel at ease with its clean and organized
+                                environment, as well as the use of state-of-the-art medical equipment for diagnosis and
+                                treatment. Additionally, the hospital offers convenience for patients' families with
+                                spacious waiting areas, a cafeteria, and adequate parking facilities.
+
                             </p>
-                            <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                                The European Union’s General Data Protection Regulation (G.D.P.R.) goes into effect on
-                                May 25 and is meant to ensure a common set of data rights in the European Union. It
-                                requires organizations to notify users as soon as possible of high-risk data breaches
-                                that could personally affect them.
+                            <p class="text-base text-justify leading-relaxed text-black indent-8">
+                                In addition to excellent healthcare services, Permata Indah Hospital is also known for
+                                its humanistic approach and the care provided to patients. Each patient is accompanied
+                                by a compassionate and empathetic medical team, ensuring they feel heard and respected
+                                throughout their treatment journey. The hospital also utilizes advanced information
+                                technology to ensure digital availability of patients' medical records, facilitating
+                                access and management of health information. In terms of security, Permata Indah
+                                Hospital has strict security systems in place to safeguard patient confidentiality and
+                                privacy. With its comprehensive facilities and values, Permata Indah Hospital has become
+                                the preferred choice for many individuals seeking the best healthcare in Yogyakarta.
                             </p>
+                        </div>
+                        <div
+                            class="flex justify-center items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
+                            <button data-modal-hide="staticModal" type="button"
+                                class="bg-[#75E6DA] hover:bg-[#75E6DA] text-white font-bold py-2 px-4 rounded-full">Close</button>
                         </div>
                     </div>
                 </div>
