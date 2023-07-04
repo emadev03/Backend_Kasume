@@ -17,7 +17,6 @@ class AdminController extends Controller
 
     public function store(Request $request)
     {
-        $title = 'Add New Admin';
         $validatedData = $request->validate([
             'first_name' => 'required',
             'last_name' => 'required',
@@ -40,7 +39,7 @@ class AdminController extends Controller
         $user->role_id = 2;
         $user->save();
 
-        return redirect('/addAdmin', compact('title'))->with('success', 'Registration successfull!');
+        return redirect('/addAdmin')->with('success', 'Registration successfull!');
     }
 
     public function list()
@@ -64,7 +63,6 @@ class AdminController extends Controller
     }
     public function update(Request $request, $id)
     {
-        $title = 'Admin';
         $admin = Admin::find($id);
 
         $admin->first_name = $request->first_name;
@@ -81,6 +79,6 @@ class AdminController extends Controller
         $admin::find($id)->update(['password_confirmation' => Hash::make($request->password_confirmation)]);
         $admin->save();
 
-        return redirect('/adminList', compact('title'));
+        return redirect('/adminList');
     }
 }

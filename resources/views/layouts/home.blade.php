@@ -152,18 +152,19 @@
             {{-- Modal --}}
             <div id="defaultModal" tabindex="-1" aria-hidden="true" data-modal-backdrop="static"
                 class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full border-10 border-[#000C66]">
-                <div class="relative w-full max-w-2xl max-h-full border-10 border-[#000C66] border-solid">
+                <div class="relative w-full max-w-2xl max-h-full border-10 bg-[#000C66] border-solid rounded-2xl">
                     <!-- Modal content -->
-                    <div class="relative bg-white rounded-2xl shadow ">
+                    <div class="relativ rounded-2xl shadow ">
                         <!-- Modal header -->
-                        <div class="p-4 border-b rounded-t-2xl bg-[#000C66] border:border-[#000C66]">
+                        <div class="p-4 rounded-t-2xl bg-[#000C66]">
                             <h3 class="text-xl font-semibold text-white text-center">
                                 Permata Indah Hospital
                             </h3>
                         </div>
 
                         <!-- Modal body -->
-                        <div class="p-6 space-y-6">
+                        <div class="p-6 space-y-6 bg-white rounded-b-2xl mt-0 mr-2 ml-2 mb-2 ">
+                            <p class="text-center text-2xl font-bold">Why You Should Choose Us ?</p>
                             <p
                                 class="text-base leading-relaxed text-justify text-black first-letter:text-7xl first-letter:font-bold indent-8">
                                 Permata Indah Hospital is a medical facility located in the bustling city of Yogyakarta.
@@ -187,11 +188,10 @@
                                 privacy. With its comprehensive facilities and values, Permata Indah Hospital has become
                                 the preferred choice for many individuals seeking the best healthcare in Yogyakarta.
                             </p>
-                        </div>
-                        <div
-                            class="flex justify-center items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
-                            <button data-modal-hide="defaultModal" type="button"
-                                class="bg-[#75E6DA] hover:bg-[#75E6DA] text-white font-bold py-2 px-4 rounded-full">Close</button>
+                            <div class="flex justify-center items-center p-2 space-x-2bg-white">
+                                <button data-modal-hide="defaultModal" type="button"
+                                    class="bg-[#75E6DA] hover:bg-[#75E6DA] text-white font-bold py-2 px-4 rounded-full w-36">Close</button>
+                            </div>
                         </div>
                     </div>
                 </div>

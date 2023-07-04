@@ -15,7 +15,6 @@ class DeviceController extends Controller
 
     public function adminAddNewDevice(Request $request)
     {
-        $title = 'Add New Device';
         $validatedData = $request->validate([
             'code' => 'required|min:10|max:10|unique:devices',
             'name' => 'required',
@@ -24,7 +23,10 @@ class DeviceController extends Controller
         ]);
 
         Device::create($validatedData);
-        return redirect('/admin/add-new-device', compact('title'))->with('success', 'Add New Device Success');
+        return redirect('/admin/add-new-device')->with([
+            'title' => 'Add New Device',
+            'success' => 'Add New Device Success'
+        ]);
     }
     public function list()
     {
@@ -47,7 +49,6 @@ class DeviceController extends Controller
     }
     public function updateDevice(Request $request, $code)
     {
-        $title = 'Device';
         $device = Device::find($code);
 
         $device->name = $request->name;
@@ -56,7 +57,7 @@ class DeviceController extends Controller
         $device->room = $request->room;
         $device->save();
 
-        return redirect('/listDevice', compact('title'));
+        return redirect('/listDevice');
     }
     public function addNewConnectedDevice($code)
     {
