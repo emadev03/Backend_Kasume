@@ -22,7 +22,7 @@ class AdminController extends Controller
             'first_name' => 'required',
             'last_name' => 'required',
             'email' => 'required|email:dns',
-            'nip' => 'required|min:8|max:8',
+            'nip' => 'required|min:8|max:8|unique:admins',
             'ward_of_origin' => 'required',
             'password' => 'required|min:8|max:100|confirmed',
             'password_confirmation' => 'required',

@@ -179,7 +179,7 @@
                 class="fixed top-0 bottom-0 left-0 flex flex-col w-5/6 max-w-sm px-6 py-6 overflow-y-auto border-r bg-darkblue">
                 <div class="flex items-center mb-8">
                     <a class="mr-auto text-3xl font-bold leading-none" href="#">
-                        <img src="{{ asset('image/mainLogo.png') }}" class="w-32 h-32" alt="Permata Indah logo" />
+                        <img src="{{ asset ('image/mainLogo.png') }}" class=" w-24 h-24" alt="Permata Indah logo" />
                     </a>
                     <button class="navbar-close">
                         <svg class="w-6 h-6 text-gray-400 cursor-pointer hover:text-gray-500"
@@ -191,23 +191,23 @@
                     </button>
                 </div>
                 <div>
-                    {{-- <ul>
-                        <li class="border-l-4 border-softgreen">
+                    <ul>
+                        <li class="">
                             <a href="/dashboard" aria-label="dashboard"
                                 class="relative flex items-center px-4 py-3 space-x-4 transition duration-500 ease-in-out delay-150 group hover:translate-x-1 hover:bg-white">
                                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40"
-                                    height="40" class="fill-current text-softgreen group-hover:text-cyan-600"
+                                    height="40" class="fill-current {{ $title == 'Dashboard' ? 'text-softgreen group-hover:text-cyan-600' : 'text-slate-200 group-hover:text-slate-400' }}"
                                     viewBox="0 0 48 48">
                                     <path
                                         d="M39.5,43h-9c-1.381,0-2.5-1.119-2.5-2.5v-9c0-1.105-0.895-2-2-2h-4c-1.105,0-2,0.895-2,2v9c0,1.381-1.119,2.5-2.5,2.5h-9	C7.119,43,6,41.881,6,40.5V21.413c0-2.299,1.054-4.471,2.859-5.893L23.071,4.321c0.545-0.428,1.313-0.428,1.857,0L39.142,15.52	C40.947,16.942,42,19.113,42,21.411V40.5C42,41.881,40.881,43,39.5,43z">
                                     </path>
                                 </svg>
                                 <span
-                                    class="pt-2 -mr-1 font-medium font-nobile text-softgreen group-hover:text-cyan-600">Dashboard</span>
+                                    class="pt-2 -mr-1 font-medium font-nobile {{ $title == 'Dashboard' ? 'text-softgreen group-hover:text-cyan-600' : 'text-slate-200 group-hover:text-slate-400' }}">Dashboard</span>
                             </a>
                         </li>
                         <li class="ml-1">
-                            <a href="/addNewDevice" aria-label="dashboard"
+                            <a href="devices.html" aria-label="dashboard"
                                 class="relative flex items-center px-4 py-3 space-x-4 group">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                     stroke-width="1.5" stroke="currentColor" width="40" height="40"
@@ -219,40 +219,37 @@
                                 </svg>
 
                                 <span
-                                    class="pt-2 -mr-1 font-medium font-nobile text-slate-200 {{ ($title = 'Device') ? 'active' : 'group-hover:text-slate-400' }}">Devices</span>
+                                    class="pt-2 -mr-1 font-medium font-nobile text-slate-200 group-hover:text-slate-400">Devices</span>
                             </a>
                         </li>
                         <li class="ml-2">
                             <a href="tools.html" aria-label="dashboard"
                                 class="relative flex items-center px-4 py-3 space-x-4 group">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="1.5" stroke="currentColor"
-                                    class="w-10 h-10 fill-current text-softgreen {{ ($title = 'Admin') ? 'active' : 'group-hover:text-cyan-600' }}">
+                                    stroke-width="1.5" stroke="currentColor" width="35" height="35"
+                                    class="text-slate-200 group-hover:text-slate-400">
                                     <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
+                                                d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
                                 </svg>
 
                                 <span
                                     class="pt-2 -mr-1 font-medium font-nobile text-slate-200 group-hover:text-slate-400">Nurses</span>
                             </a>
                         </li>
-                    </ul> --}}
-                    {{-- <div class="items-center px-6 -mx-6 border-t mt-60">
-                        <form action="/logout" method="post">
-                            @csrf
-                            <button data-modal-target="popup-modal" data-modal-toggle="popup-modal"
-                                class="flex items-center px-4 py-3 space-x-4 transition duration-500 ease-in-out rounded-md group text-slate-200 hover:bg-red-500">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="none"
-                                    viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-                                </svg>
-                                <span class="group-hover:text-white">Logout</span>
-                            </button>
-                        </form>
+                    </ul>
+                    <div class="items-center px-6 -mx-6 border-t mt-60">
+                        <button data-modal-target="popup-modal"
+                            class="flex items-center px-4 py-3 space-x-4 transition duration-500 ease-in-out rounded-md group text-slate-200 hover:bg-red-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                            </svg>
+                            <span class="group-hover:text-white">Logout</span>
+                        </button>
                     </div>
                 </div>
-            </nav> --}}
+            </nav>
         </aside>
         <!-- Content section start -->
         <section class="ml-auto bg-darkblue lg:w-[75%] xl:w-[80%] 2xl:w-[85%] 2xl:h-full">
@@ -268,7 +265,7 @@
                                     permata indah hospital
                                 </p>
                                 <div class="flex">
-                                    {{-- <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                         class="w-10 h-8 mt-6 fill-current lg:mt-3 lg:w-32 2xl:w-28 text-slate-600"
                                         viewBox="0 0 24 24">
                                         <path
@@ -277,7 +274,7 @@
                                     </svg>
                                     <img src="{{ asset('image/1st.png') }}"
                                         class="w-6 h-6 mt-5 lg:mt-2 -ml-5 lg:-ml-8 xl:-ml-8 2xl:-ml-[22px] lg:mr-5 mr-1"
-                                        alt="notification logo" /> --}}
+                                        alt="notification logo" />
                                     <img src="{{ asset('image/avatar.jpeg') }}" alt="Avatar User"
                                         class="hidden object-cover w-8 h-8 mt-6 rounded-full md:flex lg:mt-3" />
                                     <p class="pt-6 ml-2 mr-4 font-semibold text-left uppercase font-poppins lg:pt-4">
@@ -289,7 +286,7 @@
                                             @endif
                                         @endauth
                                     </p>
-                                    {{-- <div class="ml-auto mb-6 lg:w-[75%] xl:w-[80%] 2xl:w-[85%]">
+                                    <div class="ml-auto mb-6 lg:w-[75%] xl:w-[80%] 2xl:w-[85%]">
                                         <div class="z-10 top-0 h-16 lg:pt-2.5">
                                             <div
                                                 class="flex items-center justify-between px-2 space-x-4 2xl:container">
@@ -305,7 +302,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div> --}}
+                                    </div>
                                 </div>
                             </div>
                             <div class="flex flex-wrap">

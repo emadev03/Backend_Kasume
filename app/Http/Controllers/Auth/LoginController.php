@@ -24,14 +24,16 @@ class LoginController extends Controller
             $request->session()->regenerate();
             return redirect()->intended('/dashboard');
         }
-        return back()->withErrors([
-            'password' => 'Wrong nip or password',
+
+        return redirect('/login')->withErrors([
+            'password' => 'NIP atau kata sandi salah',
         ]);
     }
 
     public function logout()
     {
         Auth::logout();
+
         return redirect('/login');
     }
 }

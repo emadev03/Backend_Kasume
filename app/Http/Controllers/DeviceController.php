@@ -17,7 +17,7 @@ class DeviceController extends Controller
     {
         $title = 'Add New Device';
         $validatedData = $request->validate([
-            'code' => 'required|min:10|max:10',
+            'code' => 'required|min:10|max:10|unique:devices',
             'name' => 'required',
             'ward_of_origin' => 'required',
             'room' => 'required|min:1|max:3',
