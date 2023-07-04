@@ -190,7 +190,7 @@
                         </div>
                         <div
                             class="flex justify-center items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
-                            <button data-modal-hide="staticModal" type="button"
+                            <button data-modal-hide="defaultModal" type="button"
                                 class="bg-[#75E6DA] hover:bg-[#75E6DA] text-white font-bold py-2 px-4 rounded-full">Close</button>
                         </div>
                     </div>
