@@ -97,6 +97,7 @@ const popupModal = document.getElementById('popup-modal');
 // Mendapatkan tombol yang membuka modal
 const modalToggleButtons = document.querySelectorAll('[data-modal-toggle="defaultModal"]');
 const popupModalToggleButtons = document.querySelectorAll('[data-modal-toggle="popup-modal"]');
+const deleteButtons = document.querySelectorAll('[data-modal-toggle="delete-modal"]');
 
 // Mendapatkan tombol yang menutup modal
 const modalCloseButtons = document.querySelectorAll('[data-modal-close]');
@@ -149,6 +150,23 @@ if (logoutForm) {
     event.target.submit();
   });
 }
+
+
+const deviceCodeInput = document.getElementById('device-code-input');
+const deleteForm = document.getElementById('delete-form');
+
+// Menambahkan event listener pada setiap tombol hapus
+deleteButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const deviceCode = button.dataset.deviceCode;
+    deviceCodeInput.value = deviceCode;
+  });
+});
+
+deleteForm.addEventListener('submit', () => {
+  const deviceCode = deviceCodeInput.value;
+  deleteForm.action = `/deleteDevice/${deviceCode}`;
+});
 
 
 

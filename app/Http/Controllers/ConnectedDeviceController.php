@@ -22,7 +22,7 @@ class ConnectedDeviceController extends Controller
         $connecteddevice -> save();
 
 
-        return redirect('/list-connected-device', compact('title'))->with('success', 'Add New Device Success');
+        return redirect('/list-connected-device')->with('success', 'Add New Device Success');
     }
     public function listConnectedDevice()
     {
@@ -35,7 +35,7 @@ class ConnectedDeviceController extends Controller
         $title = 'Device';
         $connecteddevice = DeviceConnected::find($id);
         $connecteddevice->delete();
-        return redirect(compact('title'))->back()->with('success', 'Data berhasil dihapus.');
+        return redirect()->back()->with('success', 'Data berhasil dihapus.');
     }
     
     public function editConnectedDevice($id)
@@ -55,7 +55,7 @@ class ConnectedDeviceController extends Controller
         $connecteddevice->room = $request->room;
         $connecteddevice->save();
 
-        return redirect('/list-connected-device', compact('title'));
+        return redirect('/list-connected-device');
     }
 
     public function historyConnectedDevice()
