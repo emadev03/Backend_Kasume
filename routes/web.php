@@ -11,7 +11,7 @@ Route::middleware(['guest'])->group(function () {
 //User
     Route::get('/', [DashboardController::class, 'index2']);
     Route::get('/get', [App\Http\Controllers\DashboardController::class, 'get'])->name('get');
-    Route::get('/device/{idAlat}/{dropsPerMinutes}/{kapasitas}/{status}', [App\Http\Controllers\DashboardController::class, 'device']);
+    Route::get('/sensor/{code}/{dropsPerMinutes}/{kapasitas}/{status}', [App\Http\Controllers\DashboardController::class, 'sensor']);
     // Login Super Admin
     Route::get('/superLogin', [App\Http\Controllers\Auth\SuperLoginController::class, 'showLoginForm'])->name('superlogin');
     Route::post('/superAdminLogin', [App\Http\Controllers\Auth\SuperLoginController::class, 'login']);

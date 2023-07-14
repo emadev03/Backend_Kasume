@@ -14,13 +14,13 @@ class CreateConnectedDevicesTable extends Migration
     public function up()
     {
         Schema::create('connected_devices', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->integer('code');
             $table->string('ward_of_origin');
             $table->integer('room');
             $table->string('patient_name');
             $table->boolean('status')->default(1);
-            $table->foreign("code")->references('id')->on('devices')->onDelete('cascade');
+            $table->foreign("code")->references('code')->on('devices')->onDelete('cascade');
             $table->softDeletes();
             $table->timestamps();
         });

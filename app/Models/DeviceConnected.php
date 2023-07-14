@@ -15,10 +15,10 @@ class DeviceConnected extends Model
     protected $guarded = ['id'];
 
     public function Device(){
-        return $this->hasMany(Device::class,'code','code');
+        return $this->hasMany(Device::class,'code');
     }   
 
     public function Value(){
-        return $this->belongsTo(Value::class,'code','code');
+        return $this->belongsTo(Value::class,'code','id');
     } 
 }

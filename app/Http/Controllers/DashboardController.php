@@ -12,6 +12,24 @@ use Response;
 
 class DashboardController extends Controller
 {
+    public function sensor($code, $dropsPerMinutes, $kapasitas, $status)
+    {
+        if ($kapasitas < 0) {
+            $kapasitas = 0;
+        }
+        $device = DeviceConnected::where('code', $code)->where('status', '1')->first();
+        $prediksi = ($kapasitas / $dropsPerMinutes) / 4;
+        $dropsPerMinutes = $dropsPerMinutes - 1;
+
+        Value::create([
+            'idPasien' => $device->id,
+            'tpm' => $dropsPerMinutes,
+            'kapasitas' => $kapasitas,
+            'prediksi' => $prediksi,
+            'status' => $status
+        ]);
+    }
+
     public function index()
     {
         $title = 'Dashboard';
@@ -44,24 +62,6 @@ class DashboardController extends Controller
         } else {
             return view('user.dashboard', ['data' => 0], compact('title'));
         }
-    }
-
-    public function device($idAlat, $dropsPerMinutes, $kapasitas, $status)
-    {
-        if ($kapasitas < 0) {
-            $kapasitas = 0;
-        }
-        $device = DeviceConnected::where('code', $idAlat)->where('status', '1')->first();
-        $prediksi = ($kapasitas / $dropsPerMinutes) / 4;
-        $dropsPerMinutes = $dropsPerMinutes - 1;
-
-        Value::create([
-            'idPasien' => $device->id,
-            'tpm' => $dropsPerMinutes,
-            'kapasitas' => $kapasitas,
-            'prediksi' => $prediksi,
-            'status' => $status
-        ]);
     }
 
     public function get()

@@ -22,6 +22,6 @@ class Device extends Model
         return $this->belongsTo(DeviceConnected::class);
     }
     public function Value(){
-        return $this->hasMany(Value::class,'id');
+        return $this->hasMany(Value::class,'id', 'code');
     }  
 }

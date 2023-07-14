@@ -8,15 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Value extends Model
 {
     use HasFactory;
+    protected $table = 'values';
     protected $fillable = [
         'id',
         'idPasien',
-        'alat',
+        'code',
         'tpm',
         'kapasitas',
         'prediksi',
         'status',
-    
         ];
     
 
