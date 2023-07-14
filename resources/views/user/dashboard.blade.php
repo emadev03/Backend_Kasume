@@ -6,7 +6,7 @@
     @else
         @for ($i = 0; $i < count($data); $i++)
             @if ($data[$i]['status'] == 1)
-                <div class="flex-wrap w-full ml-2 border-b-2 lg:w-[25%]">
+                <div class="flex-wrap w-full pl-2 border-b-2 lg:w-[25%]">
                     <div class=" flex flex-wrap w-full mb-1 bg-darkblue rounded-xl h-96 lg:h-90 p-2">
                         <div class="w-[100%] p-2 border-t-4 shadow-md bg-gray-50 rounded-xl h-1/3 border-softgreen">
                             <p class="text-gray-500 font-poppins">
@@ -50,7 +50,7 @@
                                 </div>
                                 <div
                                     class="flex-wrap w-full mx-auto text-xl font-semibold text-center uppercase font-nobile">
-                                    <span class='kapasitas'></span>
+                                    <span class='kapasitas'></span> gr
                                 </div>
                             </div>
                         </div>
@@ -80,7 +80,7 @@
                                 
                                 <div
                                     class="flex-wrap w-full mx-auto text-xl font-semibold text-center uppercase font-nobile">
-                                    <span class='prediksi'></span>
+                                    <span class='prediksi'></span> jam
                                 </div>
                             </div>
                         </div>

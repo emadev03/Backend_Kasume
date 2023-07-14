@@ -99,22 +99,22 @@
                                     aria-labelledby="dropdownRightButton">
                                     <li>
                                         <a href="{{ route('adminAddNewDevice') }}"
-                                            class="block px-4 py-2 {{ $title == 'Add New Device' ? 'text-softgreen group-hover:text-cyan-600' : 'text-slate-200 group-hover:text-slate-400' }}">Add
+                                            class="block px-4 py-2 {{ $title == 'Add New Device' ? 'text-softgreen group-hover:text-cyan-600' : 'text-black group-hover:text-slate-400' }}">Add
                                             New Device</a>
                                     </li>
                                     <li>
                                         <a href="{{ route('listDevice') }}"
-                                            class="block px-4 py-2 {{ $title == 'List Device' ? 'text-softgreen group-hover:text-cyan-600' : 'text-slate-200 group-hover:text-slate-400' }}">List
+                                            class="block px-4 py-2 {{ $title == 'List Device' ? 'text-softgreen group-hover:text-cyan-600' : 'text-black group-hover:text-slate-400' }}">List
                                             Device</a>
                                     </li>
                                     <li>
                                         <a href="{{ route('listConnectedDevice') }}"
-                                            class="block px-4 py-2 {{ $title == 'List Connected Device' ? 'text-softgreen group-hover:text-cyan-600' : 'text-slate-200 group-hover:text-slate-400' }}">Connected
+                                            class="block px-4 py-2 {{ $title == 'List Connected Device' ? 'text-softgreen group-hover:text-cyan-600' : 'text-black group-hover:text-slate-400' }}">Connected
                                             Device</a>
                                     </li>
                                     <li>
                                         <a href="{{ route('historyConnectedDevice') }}"
-                                            class="block px-4 py-2 {{ $title == 'History of Connected Device' ? 'text-softgreen group-hover:text-cyan-600' : 'text-slate-200 group-hover:text-slate-400' }}">History
+                                            class="block px-4 py-2 {{ $title == 'History of Connected Device' ? 'text-softgreen group-hover:text-cyan-600' : 'text-black group-hover:text-slate-400' }}">History
                                             of Connected Device</a>
                                     </li>
                                 </ul>
@@ -145,12 +145,12 @@
                                             aria-labelledby="dropdownRightButton">
                                             <li>
                                                 <a href="/addAdmin"
-                                                    class="block px-4 py-2 {{ $title == 'Add New Admin' ? 'text-softgreen group-hover:text-cyan-600' : 'text-slate-200 group-hover:text-slate-400' }}">Add
+                                                    class="block px-4 py-2 {{ $title == 'Add New Admin' ? 'text-softgreen group-hover:text-cyan-600' : 'text-black group-hover:text-slate-400' }}">Add
                                                     New Admin</a>
                                             </li>
                                             <li>
                                                 <a href="/adminList"
-                                                    class="block px-4 py-2 {{ $title == 'List Admin' ? 'text-softgreen group-hover:text-cyan-600' : 'text-slate-200 group-hover:text-slate-400' }}">Admin
+                                                    class="block px-4 py-2 {{ $title == 'List Admin' ? 'text-softgreen group-hover:text-cyan-600' : 'text-black group-hover:text-slate-400' }}">Admin
                                                     List</a>
                                             </li>
                                         </ul>
