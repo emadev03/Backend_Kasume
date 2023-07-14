@@ -10,7 +10,8 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 Route::middleware(['guest'])->group(function () {
 //User
     Route::get('/', [DashboardController::class, 'index2']);
-
+    Route::get('/get', [App\Http\Controllers\DashboardController::class, 'get'])->name('get');
+    Route::get('/device/{idAlat}/{dropsPerMinutes}/{kapasitas}/{status}', [App\Http\Controllers\DashboardController::class, 'device']);
     // Login Super Admin
     Route::get('/superLogin', [App\Http\Controllers\Auth\SuperLoginController::class, 'showLoginForm'])->name('superlogin');
     Route::post('/superAdminLogin', [App\Http\Controllers\Auth\SuperLoginController::class, 'login']);
@@ -22,8 +23,10 @@ Route::middleware(['guest'])->group(function () {
 });
 // Super Admin
 Route::middleware(['auth', 'must-superadmin'])->group(function () {
+   
     // Menambahkan Admin Baru
     Route::get('/addAdmin', [AdminController::class, 'index']);
+
     Route::post('/addAdmin', [AdminController::class, 'store'])->name('addAdmin');
 
     // List Admin
@@ -41,8 +44,11 @@ Route::middleware(['auth', 'must-superadmin'])->group(function () {
 });
 
 //Admin & Super Admin
-Route::middleware(['auth', 'must-superadmin-or-admin'])->group(function () {
+    Route::middleware(['auth', 'must-superadmin-or-admin'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index']);
+
+    Route::get('/get2', [App\Http\Controllers\DashboardController::class, 'get2'])->name('get');
+    Route::get('/device/{idAlat}/{dropsPerMinutes}/{kapasitas}/{status}', [App\Http\Controllers\DashboardController::class, 'device']);
 
     // Add Device
     Route::get('/admin/add-new-device', [DeviceController::class, 'addNewDevice'])->name('adminAddNewDevice');

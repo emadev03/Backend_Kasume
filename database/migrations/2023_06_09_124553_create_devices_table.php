@@ -18,7 +18,7 @@ class CreateDevicesTable extends Migration
             $table->string('name');
             $table->string('ward_of_origin');
             $table->integer('room');
-            $table->boolean('status')->default(0);
+            $table->string("status")->nullable();
             $table->timestamps();
         });
     }

@@ -14,6 +14,14 @@ class Device extends Model
         'code',
         'name',
         'ward_of_origin',
-        'room'
+        'room',
+        'status'
     ];
+
+    public function DeviceConnected(){
+        return $this->belongsTo(DeviceConnected::class);
+    }
+    public function Value(){
+        return $this->hasMany(Value::class,'id');
+    }  
 }

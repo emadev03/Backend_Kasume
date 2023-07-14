@@ -13,4 +13,12 @@ class DeviceConnected extends Model
     protected $table = 'connected_devices';
     protected $primaryKey = 'id';
     protected $guarded = ['id'];
+
+    public function Device(){
+        return $this->hasMany(Device::class,'code','code');
+    }   
+
+    public function Value(){
+        return $this->belongsTo(Value::class,'code','code');
+    } 
 }
