@@ -92,11 +92,16 @@
                                     @enderror
                                 </div>
 
-                                <button id="submitNurse"
-                                    class="w-full px-6 py-3 rounded-md bg-softgreen text-slate-700 active:text-white active:bg-darkblue"
-                                    type="submit">
-                                    <span class="font-bold font-nobile">Login</span>
-                                </button>
+                                <div class="flex flex-row h-10">
+                                    <a href="/"
+                                        class="w-1/2 my-3 h-full text-[#000C66] font-nobile font-bold text-sm hover:text-white">Dashboard
+                                        User</a>
+                                    <button id="submitNurse"
+                                        class="w-1/2 px-6 ml-12 rounded-md bg-softgreen text-slate-700 hover:text-white hover:bg-darkblue"
+                                        type="submit">
+                                        <span class="font-bold font-nobile">Login</span>
+                                    </button>
+                                </div>
                             </form>
                             <div class="mt-20 space-x-4 font-bold text-center text-gray-300 font-inter">
                                 <span>&copy; Sifis</span>
