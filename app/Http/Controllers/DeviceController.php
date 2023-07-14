@@ -36,7 +36,6 @@ class DeviceController extends Controller
     }
     public function deleteDevice($code)
     {
-        $title = 'Device';
         $device = Device::find($code);
         $device->delete();
         return redirect('/listDevice');
