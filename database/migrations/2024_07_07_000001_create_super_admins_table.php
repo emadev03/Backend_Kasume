@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateSuperAdminsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('super_admins', function (Blueprint $table) {
@@ -24,11 +19,6 @@ class CreateSuperAdminsTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('super_admins');
